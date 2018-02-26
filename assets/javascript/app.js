@@ -59,8 +59,8 @@ var userChoice = {
     a, b, c, d
 }
 
-var trueAAwer;
-var falseAnswer;
+true = 0;
+= false0;
 
 var win = 0;
 var lose = 0;
@@ -76,19 +76,19 @@ for (var i=0; i < name.length; i++){
 startGame (function(){
     if(johnBtn){
         //start countdown 3 seconds after go alert click
-        /*populate john question/ans random*/    
+        userChoice /*populate john question/ans random*/    
     }
     else if(paulBtn){
         //start countdown 3 seconds after go alert click
-        /*populate paul question/ans random*/
+        userChoice /*populate paul question/ans random*/
     }
     else if(georgeBtn){
         //start countdown 3 seconds after go alert click
-        /*populate george question/ans random*/
+        userChoice /*populate george question/ans random*/
     }
     else if(ringoBtn){
         //start countdown 3 seconds after go alert click
-        /*populate ringo question/ans random*/
+        userChoice /*populate ringo question/ans random*/
     }
 });
 
@@ -100,64 +100,64 @@ there is only 1 correct answer per question.
 var johnBtn = $("#john").on("click" (function () {
 
     q1 = "Who was John Lennon's first wife?";
-    true = "Cynthia" 
-    false = "Yoko"
-    false = "Linda"
-    false = "Sadie"
+        "Cynthia" = true 
+        "Yoko" =  false
+        "Linda" = false 
+        "Sadie" = false
 
     q2 = "What is the name of John's first son?"
-    true = "Julian"
-    false = "Sean"
-    false = "James"
-    false = "Aaron"
+     "Julian" = true    
+     = "Sean" = false
+     = "James" = false
+     = "Aaron" = false
 
     q3 = "What is John Lennon known for wearing a lot?"
-    true = "Glasses"
-    false = "Slippers"
-    false = "Jackets"
-    false = "Hats"
+     "Glasses" = true
+     "Slippers" = false
+     "Jackets" = false
+     "Hats" = false
 
     q4 = "What was John Lennon's last album?"
-    true = "Double Fantasy"
-    false = "Imagine"
-    false = "Band on the Run"
-    false = "Hard Days Night"
+    "Double Fantasy"  = true
+    "Imagine" = false
+    "Band on the Run" = false
+    "Hard Days Night" = false
 
     q5 = "What song did John Lennon sing in the Beatles?"
-    true = "Twist and Shout"
-    false = "Long Tall Sally"
-    false = "Boys"
-    false = "Something"
+    "Twist and Shout" = true
+    "Long Tall Sally" = false
+    "Boys" = false
+    "Something" = false
 
     q6 = "What was John Lennon's original middle name?"
-    true = "Winston"
-    false = "Ono"
-    falseAnswer = "Patrick"
-    falseAnswer = "William"
+    "Winston" = true
+    "Ono" = false
+    "Patrick" = false
+    "William" = false
 
     q7 = "What was John Lennon's first band called?"
-    true = "The Quarry Men"
-    false = "The Beatles"
-    false = "Herman and the Hermits"
-    false = "The Experience"
+    "The Quarry Men"  = true
+    "The Beatles" = false
+    "Herman and the Hermits" = false
+    "The Experience" = false
 
     q8 = "Who was the famous songwriting partner of John Lennon?"
-    true = "Paul"
-    false = "Ringo"
-    false = "George"
-    false = "Brian"
+    "Paul" = true  
+    "Ringo" = false
+    "George" = false
+    "Brian" = false
 
     q9 = "Where is John Lennon from?"
-    true = "Liverpool"
-    false = "Newcastle"
-    false = "Manchester"
-    false = "Leeds"
+    "Liverpool"  = true
+    "Newcastle" = false
+    "Manchester" = false
+    "Leeds" = false
 
     q10 = "What instrument does John Lennon play?"
-    true = "All of the Above"
-    false = "The Guitar"
-    false = "The Bass"
-    false = "The Piano"
+    "All of the Above"  = true
+    "The Guitar" = false
+    "The Bass" = false
+    "The Piano" = false
 
 
 }));
@@ -165,64 +165,64 @@ var johnBtn = $("#john").on("click" (function () {
 //clicking on paul mccartney executes 10 questions about paul mccartney
 var paulBtn = $("#paul").on("click"(function () {
     q1 = "What is Paul's first name?"
-    true = "James"
-    false = "Paul...Duh!"
-    false = "Patrick"
-    false = "Jude"
+     "James" = true   
+    "Paul...Duh!"= false
+    "Patrick"= false
+    "Jude"= false
 
     q2 = "Who was married to Paul and played keys with him in 'Wings'?"
-    true = "Linda"
-    false = "Lucy"
-    false = "Judy"
-    false = "Michelle"
+     "Linda" = true
+    "Lucy"= false
+    "Judy"= false
+    "Michelle"= false
 
     q3 = "What instrument did Paul usually play?"
-    true = "The Bass"
-    false = "The Trombone"
-    false = "The Lead Guitar"
-    false = "The Harmonica"
+     "The Bass" = true
+    "The Trombone"= false
+    "The Lead Guitar"= false
+    "The Harmonica"= false
 
     q4 = "What doesn't Paul eat?"
-    true = "meat"
-    false = "flowers"
-    false = "cookies"   
-    false = "bread"
+     "meat" = true  
+    "flowers"= false
+    "cookies"= false   
+    "bread"= false
 
     q5 = "Who did Paul know first?"
-    true = "George"
-    false = "John"
-    false = "Ringo"
-    false = "Brian"
+     "George" = true    
+    "John" = false 
+    "Ringo" = false 
+    "Brian" = false 
 
     q6 = "What song did Paul write?"
-    true = "Let it Be"
-    false = "Lucy in the Sky With Diamonds"
-    false = "Long Tall Sally"
-    false = "Something"
+     "Let it Be"  = true
+    "Lucy in the Sky With Diamonds" = false 
+    "Long Tall Sally" = false 
+    "Something" = false
 
     q7 = "Who did not do a song with Paul?
-    true = "Elvis Presley"
-    false = "Michael Jackson"
-    false = "Stevie Wonder"
-    false = "Kanye West"
+    "Elvis Presley"  = true
+    "Michael Jackson" = false
+    "Stevie Wonder" = false
+    "Kanye West" = false
     
-    q8 = "What instrument did Paul play in "Hey Jude"?"
-    true = "Piano"
-    false = "Bass"
-    false = "Guitar"
-    false = "Violin"
+    q8 = "What instrument did Paul play in 'Hey Jude'?"
+    "Piano" = true
+    "Bass" = false
+    "Guitar" = false
+    "Violin" = false
 
     q9 = "What TV show did Paul first come out in in America?"
-    true = "The Ed Sullivan Show"
-    false = "Tonight with Johnny Carson"
-    false = "Knight Rider"
-    false = "Family Ties"
+    "The Ed Sullivan Show"  = true
+    "Tonight with Johnny Carson" = false
+    "Knight Rider" = false
+    "Family Ties" = false
 
     q10 = "Who played with Paul?"
-    true = "Dave Grohl"
-    false = "David Hasselhoff"
-    false = "David Spade"
-    false = "David Arquette"
+    "Dave Grohl"  = true
+    "David Hasselhoff" = false 
+    "David Spade" = false
+    "David Arquette" = false
 
 
 }));
@@ -230,128 +230,128 @@ var paulBtn = $("#paul").on("click"(function () {
 //clicking on george harrison executes 10 questions about george harrison
 var georgeBtn = $("#george").on("click"(function () {
     q1 = "What did George practice religiously?"
-    true = "Hinduism"
-    false = "Christianity"
-    false = "Judaism"
-    false = "Satanism"
+     "Hinduism" = true
+    "Christianity" = false
+    "Judaism" = false
+    "Satanism" = false
 
     q2 = "Who played the lead guitar in 'While My Guitar Gently Weeps'?"
-    true = "Eric Clapton"
-    false = "Paul McCartney"
-    false = "George Harrison"
-    false = "Jimi Hendrix"
+     "Eric Clapton"  = true
+    "Paul McCartney" = false
+    "George Harrison" = false
+    "Jimi Hendrix" = false
 
     q3 = "Who was George Harrison's Favorite Influence?"
-    true = "All of the Above"
-    false = "Carl Perkins"
-    false = "Chet Atkins"
-    false = "Chuck Berry"
+     "All of the Above"  = true
+    "Carl Perkins" = false
+    "Chet Atkins" = false
+    "Chuck Berry" = false
 
     g4 = "What song is George Harrison known for?"
-    true = "Here Comes The Sun"
-    false = "Penny Lane"
-    false = "Tears in Heaven"
-    false = "All Along the Watchtower"
+     "Here Comes The Sun"  = true
+    "Penny Lane" = false
+    "Tears in Heaven" = false
+    "All Along the Watchtower" = false
 
     q5 = "What is George known for playing?"
-    true = "Guitar"
-    false = "Piano"
-    false = "Drums"
-    false = "Ukelele"
+     "Guitar" = true    
+    "Piano" = false
+    "Drums" = false
+    "Ukelele" = false
 
     q6 = "Who did NOT play with George?"
-    true = "The Weekend"
-    false = "Ringo Starr"
-    false = "Eric Clapton"
-    false = "Tom Petty"
+     "The Weekend" = true
+    "Ringo Starr" = false
+    "Eric Clapton" = false
+    "Tom Petty" = false
 
     q7 = "Where did George meet John?"
-    true = "In a Double Decker Bus"
-    false = "At the Tavern"
-    false = "At School"
-    false = "In Germany"
+     "In a Double Decker Bus"  = true
+    "At the Tavern" = false
+    "At School" = false
+    "In Germany" = false
 
     q8 = "What is a phrase you might hear George say?"
-    true = "Hari Krishna"
-    false = "A Whop Bop a Loo wop"
-    false = "Hey Sugar!"
-    false = "Smashing Daaaarling!"
+     "Hari Krishna"  = true
+    "A Whop Bop a Loo wop" = false
+    "Hey Sugar!" = false
+    "Smashing Daaaarling!" = false
 
     q9 = "What instrument from India did George enjoy playing?"
-    true = "Sitar"
-    false = "Ukelele"
-    false = "Bongo's"
-    false = "Snake Flute"
+     "Sitar"= true   
+    "Ukelele" = false
+    "Bongo's" = false
+    "Snake Flute" = false
 
     q10 = "Who is George's son?"
-    true = "Danny"
-    false = "Eric"
-    false = "John"
-    false = "Harris"
+     "Danny" = true   
+    "Eric" = false
+    "John" = false
+    "Harris" = false
 
 }));
 
 //clicking on ringo starr executes 10 questions about ringo starr
 var ringoBtn = $("#ringo").on("click"(function () {
     q1 = "What was the first band of Ringo Starr?"
-    true = "Rory Storm and the Hurricanes"
-    false = "The Beatles"
-    false = "The Rolling Stones"
-    false = "Herman and the Hermits"
+    "Rory Storm and the Hurricanes"  = true
+    "The Beatles" = false
+    "The Rolling Stones" = false
+    "Herman and the Hermits" = false
 
     q2 = "What does Ringo play?"
-    true = "Drums"
-    false = "Piano"
-    false = "Flute"
-    false = "Guitar"
+    "Drums"   = true   
+    "Piano" = false
+    "Flute" = false
+    "Guitar" = false
 
     q3 = "What is Ringo's real first name?"
-    true = "Richard"
-    false = "Ronald"
-    false = "Raymond"
-    false = "Rudy"
+    "Richard" = true
+    "Ronald" = false
+    "Raymond" = false
+    "Rudy" = false
 
     q4 = "What is a song written by Ringo?"
-    true = "Photograph"
-    false = "Boys"
-    false = "Yellow Submarine"
-    false = "Come Together"
+    "Photograph"  = true
+    "Boys" = false
+    "Yellow Submarine" = false
+    "Come Together" = false
 
     q5 = "What has Ringo performed as in a movie?"
-    true = "A Cave Man"
-    false = "A member of The Rolling Stones"
-    false = "A vietnam veteran"
-    false = "A muppet"
+    "A Cave Man"  = true
+    "A member of The Rolling Stones" = false   
+    "A vietnam veteran" = false
+    "A muppet" = false
 
     q6 = "What would Ringo say?"
-    true = "Peace and Love!"
-    false = "Kawabonga!"
-    false = "Hari Krishna!"
-    false = "Yippidy Doo Dah!"
+    "Peace and Love!"  = true
+    "Kawabonga!" = false
+    "Hari Krishna!" = false
+    "Yippidy Doo Dah!" = false
 
     q7 = "What drum set does Ringo play?"
-    true = "Ludwig"
-    false = "Yamaha"
-    false = "Tama"
-    false = "Slingerland"
+    "Ludwig" = true    
+    "Yamaha" = false
+    "Tama" = false
+    "Slingerland" = false
 
     q8 = "Who did Ringo's son play for?"
-    true = "The Who"
-    false = "The Led ZeppAgain"
-    false = "Tom Jones"
-    false = "Oasis"
+     "The Who" = true
+    "The Led ZeppAgain" = false
+    "Tom Jones" = false
+    "Oasis" = false
 
     q9 = "What is a famous feature of Ringo?"
-    true = "His rings"
-    false = "His shirts"
-    false = "His car"
-    false = "His harmonica"
+    "His rings"  = true
+    "His shirts" = false
+    "His car" = false
+    "His harmonica" = false
 
     q10 = "Who did Ringo Starr replace?"
-    true = "Pete Best"
-    false = "Keith Moon"
-    false = "Brian Epstein"
-    false = "Stuart Sutcliffe"
+    "Pete Best"  = true
+    "Keith Moon" = false
+    "Brian Epstein" = false
+    "Stuart Sutcliffe" = false
 
 }));
 
