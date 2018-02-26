@@ -3,17 +3,14 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <title>Beatles Multiple Choice</title>
 
-    <link rel="stylesheet" type="text/css" href="assets/css/refresh.css">
-    </res>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/refresh.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
 </head>
 
 <body>
@@ -34,21 +31,32 @@
         <h2 class="heAd1">Choose any of the boys for your category:</h2>
 
         <ul id="choices">
-            <li id="john">
-                <button class="catg">
-                    <img class="photo" src="assets/images/john.png" alt="Lennon" width="65px" height="95px" />John Lennon </button>
+            <li>
+                <button id="john" class="catg">
+                    <img class="photo" src="assets/images/john.png" alt="Lennon" width="65px" height="95px" />
+                    <p class="name">John Lennon</p>
+                </button>
             </li>
-            <li id="paul">
-                <button class="catg">
-                    <img class="photo" src="assets/images/paul.png" alt="McCartney" width="65px" height="95px" />Paul McCartney </button>
+            
+            <li>
+                <button id="paul" class="catg">
+                    <img class="photo" src="assets/images/paul.png" alt="McCartney" width="65px" height="95px" />
+                    <p class="name">Paul McCartney</p>
+                </button>
             </li>
-            <li id="george">
-                <button class="catg">
-                    <img class="photo" src="assets/images/george.png" alt="Harrison" width="65px" height="95px" />George Harrison </button>
+            
+            <li>
+                <button id="george" class="catg">
+                    <img class="photo" src="assets/images/george.png" alt="Harrison" width="65px" height="95px" />
+                    <p class="name">George Harrison</p>
+                </button>
             </li>
-            <li id="ringo">
-                <button class="catg">
-                    <img class="photo" src="assets/images/ringo.png" alt="Starkey" width="65px" height="95px" />Ringo Starr </button>
+            
+            <li>
+                <button id="ringo" class="catg">
+                    <img class="photo" src="assets/images/ringo.png" alt="Starkey" width="65px" height="95px" />
+                    <p class="name">Ringo Starr</p>
+                </button>
             </li>
         </ul>
 
@@ -93,8 +101,8 @@
             <h2>Answer:</h2>
             <span id="correctAnswer"></span>
         </div>
-
-        <button id="reset" class="btn">Reset Game</button>
+        <button id="newGame" class="btn">New Round</button><button id="reset" class="btn">Reset Game</button>
+        
 
     </main>
 
@@ -128,7 +136,7 @@
     </footer>
 
 
-    <script src="assets/javascript/game.js"></script>
+    <script src="assets/javascript/game.js", "jquery-3.3.1.min.js"></script>
 
 
 </body>
