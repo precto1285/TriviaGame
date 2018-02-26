@@ -1,46 +1,121 @@
 body{
-    
+    background-image: url(../images/TheBeatles.png);
+    background-size:100%;
 }
 
 header{
+    margin:30px, 20px, 30px, 20px;
+    border:solid;
+    width: 100%;
+    height: 15%;
+    text-align:right;
+    padding-top:5px;
+    padding-right:330px;
+    color:white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 
 }
 
 #headBody{
+    margin:15px;
+    padding-top: 80px;
+    padding-left:100px;
 
 }
 
 .heAd1{
-
+    color:white;
 }
 
 
 main{
-
+    width:600px;
+    margin-top:100px;
+    margin-left:250px;
+    padding-left:10px;
+    float:left;
 }
 .questionBody{
+    margin: 50px;
+    background-image: url(../images/main.png);
+    background-size:100%;
 
 }
 
 #questionChoice{
-
+    
 }
 #question{
 
 }
+#category{
+    height:700px;
+    width:300px;
+    padding-left: 150px;
+    margin-left:100px;
+    
+
+}
+.btn{
+    margin-top:5px;
+    margin-left:380px;
+    align-content:center;
+}
 
 .c1{
-
+    margin: 5px;
+    background-color:grey;
 }
 #chcA{
-
+    margin: 5px;
+    background-color:grey;
 }
 #chcB{
-
+    margin: 5px;
+    background-color:grey;
 }
 #chcC{
-
+    margin: 5px;
+    background-color:grey;
 }
 #chcD{
+    margin: 5px;
+    background-color:grey;
+}
+.catg{
+    background-color:grey;
+    text-align:center;
+    height:200px;
+    width:175px;
+    float:left;
+    margin:20px;
+    color:white;
+    font-size: 15pt;
+}
+.photo{
+    padding:auto;
+    margin:5px;
+}
 
+#scoreCount{
+    width:800px;
+    margin-top:100px;
+    margin-left:500px;
+    clear:both;
+    color:yellow;
+    margin-top:10px;
+
+}
+footer{
+    background-color:grey;
+    text-align:center;
+    align-content: center;
+    margin-top:100px;
+    width:100%;
+    height:70px;
+    border:solid;
+    border-color:whitesmoke;
+    clear:both;
+    color:whitesmoke;
 }

@@ -8,10 +8,11 @@
 
     <title>Beatles Multiple Choice</title>
 
-    <res link="stylesheet" type="text/css" href="assets/css/refresh.css"></res>
+    <link rel="stylesheet" type="text/css" href="assets/css/refresh.css">
+    </res>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <res link="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
@@ -30,40 +31,35 @@
 
     <main class="questionBody">
 
-        <h2 class="heAd1"></h2>
-
-        <button id="">Start Game</button>
-
-        <h2 class="heAd1"> You have: 
+        <h2 class="heAd1"> You have:
             <span id="timeKeeper"></span> left.
         </h2>
 
-        <h1><span id="questionChoice"></span></h1>
+        <h1 class="heAd1">Question:
+            <span id="questionChoice"></span>
+        </h1>
 
         <ul id="question" class="qCat">
 
             <li id="chcA" class="c1">
-                <p>A. </p> +
+
                 <span id="ans1"></span>
-                <button id="answer1" class="btn"></button>
+                <button id="answer1" class="btn">A</button>
             </li>
 
             <li id="chcB" class="c1">
-                <p>B. </p> +
                 <span id="ans2"></span>
-                <button id="answer2" class="btn"></button>
+                <button id="answer2" class="btn">B</button>
             </li>
 
             <li id="chcC" class="c1">
-                <p>C. </p> +
                 <span id="ans3"></span>
-                <button id="answer3" class="btn"></button>
+                <button id="answer3" class="btn">C</button>
             </li>
 
             <li id="chcD" class="c1">
-                <p>D. </p> +
                 <span id="ans4"></span>
-                <button id="answer4" class="btn"></button>
+                <button id="answer4" class="btn">D</button>
             </li>
 
         </ul>
@@ -71,43 +67,59 @@
     </main>
 
 
-    <sidebar id="category" class=>
+    <sidebar id="category">
 
-        <h2 class="heAd1"></h2>
 
-        <ul>
+        <h2 class="heAd1">Choose any of the boys for your category:</h2>
+        
+        <ul id="choices">
             <li id="john">
-                <button class="">
-                    <img src="assets/images/jlennon.png" alt="Lennon" width="150px" />John Lennon </button>
+                <button class="catg">
+                    <img class="photo" src="assets/images/john.png" alt="Lennon" width="65px" height="95px" />John Lennon </button>
             </li>
             <li id="paul">
-                <button class="">
-                    <img src="assets/images/pmcartney.png" alt="McCartney" width="150px" />Paul McCartney </button>
+                <button class="catg">
+                    <img class="photo" src="assets/images/paul.png" alt="McCartney" width="65px" height="95px" />Paul McCartney </button>
             </li>
             <li id="george">
-                <button class="">
-                    <img src="assets/images/gharrison.png" alt="Harrison" width="150px" />George Harrison </button>
+                <button class="catg">
+                    <img class="photo" src="assets/images/george.png" alt="Harrison" width="65px" height="95px" />George Harrison </button>
             </li>
             <li id="ringo">
-                <button class="">
-                    <img src="assets/images/rstarr.png" alt="Starkey" width="150px" />Ringo Starr </button>
+                <button class="catg">
+                    <img class="photo" src="assets/images/ringo.png" alt="Starkey" width="65px" height="95px" />Ringo Starr </button>
             </li>
         </ul>
+
+        <button id="reset" class="btn">Reset Game</button>
 
     </sidebar>
 
     <div id="scoreCount" class="">
         <ul>
-            <li><p id="correctCount" class="score"> /10</p></li>
-            <li><p id="winCount" class="score"></p></li>
-            <li><p id="lossCount" class="score"></p></li>
-            <li><p id="percentCount" class="score"></p></li>
+            <li>
+                <p id="correctCount" class="score">Best out of: </p>
+                <span id="bestOutOf"></span> /10</li>
+            <li>
+                <p id="winCount" class="score">Wins: </p>
+                <span id="wins"></span>
+            </li>
+            <li>
+                <p id="lossCount" class="score">Loss: </p>
+                <span id="loss"></span>
+            </li>
+            <li>
+                <p id="percentCount" class="score"></p>
+                <span id="percent"></span>
+            </li>
         </ul>
 
     </div>
 
 
-    <footer id=class=""><p id="cpyrt">Copyright 2018 &copy; Philippe Recto</p></footer>
+    <footer>
+        <p id="cpyrt">Copyright 2018 &copy; Philippe Recto</p>
+    </footer>
 
 
     <script src="assets/javascript/game.js"></script>
