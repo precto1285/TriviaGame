@@ -52,12 +52,33 @@ var win = 0;
 var lose = 0;
 var bestOutOf = 0;
 
-
-
-
+//random arrangement of answers to btn a thru d and random arrangement of questions.
+/*for (var i=0, i<, i++){
+ var questions = Math.floor(Math.random() * );
+}
+*/
 
 //click on a category to start game. each category is a member of The Beatles.
-startaGame();
+startGame (function(){
+    if(/*user clicks John*/){
+        //start countdown 3 seconds after go alert click
+        /*populate john question/ans random*/
+        
+
+    }
+    else if(/*user clicks Paul*/){
+        //start countdown 3 seconds after go alert click
+        /*populate paul question/ans random*/
+    }
+    else if(/*user clicks George*/){
+        //start countdown 3 seconds after go alert click
+        /*populate george question/ans random*/
+    }
+    else if(/*user clicks Ringo*/){
+        //start countdown 3 seconds after go alert click
+        /*populate ringo question/ans random*/
+    }
+});
 
 //clicking on john lennon executes 10 questions about John Lennon
 $("#john").on("click"(function () {
@@ -122,9 +143,8 @@ $("#john").on("click"(function () {
     //false answer: The Bass
     //false answer: The Piano
 
+
 }));
-
-
 
 //clicking on paul mccartney executes 10 questions about paul mccartney
 $("#paul").on("click"(function () {
@@ -187,6 +207,7 @@ $("#paul").on("click"(function () {
     //false answer: David Hasselhoff
     //false answer: David Spade
     //false answer: David Arquette
+
 
 }));
 
@@ -332,8 +353,12 @@ if (/*correct answer is clicked*/) {
     //populate correctAnswer
 
 }
-//if the answer is wrong, no population of best out of 10.
 
+else{
+    //no population of best out of 10.
+    //alert:"Whoops!" and pause the clock
+    //when alert "ok"clicks, and resume the clock
+}
 
 //after 10 rounds if the user scores above 50%, you win and a win count populates by 1.
 if (/*bestOutOf >= 5*/) {
