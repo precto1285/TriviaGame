@@ -1,3 +1,5 @@
+
+// This is my question variable in which I can call on any of the 10 questions and multiple choice answers to fill.
 var questions = [
     {
         qstn:'1. Who is the oldest Beatle by age?', 
@@ -100,24 +102,39 @@ var questions = [
     }
 ]
 
+//These are variables for counting:
+//This variable is for holding the number of correct answers guessed by the user.
 var correctAnswers = 0;
+
+//This variable is for holding the number of incorrect answers guessed by the user.
 var incorrectAnswers = 0;
+
+//This variable is for holding the number of times the question was skipped due to no answered selected.
 var unanswered = 0;
+
+//
 var currentQuestion = 0;
+
+//This variablle executes a sound element on the html page
 var audioElement = document.createElement("audio");
+
+//These are variables for the timer:
 var intervalId;
+
 var timerRunning = false;
 
 var timer = {
 	time: 30,
 
+	//These are the functions that operate the timer:
+	//function for reseting the timer:
 	reset: function() {
 		timer.time = 30;
 		$('#timeKeeper').html('30');
 		clearInterval(intervalId);
 		timerRunning = false;
 	},
-
+	//function for starting the timer:
 	start: function() {
 		if (!timerRunning) {
 			$('#timeKeeper').html('<h3>' + 'Time Remaining: ' + timer.time + '</h3>')
@@ -126,7 +143,7 @@ var timer = {
 
 		}
 	},
-
+	//function for the count of the clock:
 	count: function() {
 		timer.time--;
 		$('#timeKeeper').html('<h3>' + 'Time Remaining: ' + timer.time + '</h3>');
@@ -135,18 +152,18 @@ var timer = {
 		}
 	}
 }
-
+//This function is for randomly loading questions to be answered.
 function question() {
 	timer.reset();
 	timer.start();
 	$('#answers').empty();
-	$('#question').html('<h2>' + questions[currentQuestion].questionTitle + '</h2>');
+	$('#question').html('<h2>' + questions[currentQuestion].qstn + '</h2>');
 	for (var i = 0; i < questions[currentQuestion].answers.length; i ++) {
 		var button = $('<button onclick="answer('+i+')" class="answerButton">' + questions[currentQuestion].answers[i].answerText + '</button>');
 		$('#answers').append(button)
 	}
 }
-
+//this function is for loading the next page when answer/no answer has been executed.
 function nextQuestion() {
 	$('.startingDiv').hide();
 	$('.correctAnswer').hide();
@@ -160,7 +177,7 @@ function nextQuestion() {
 	}
 }
 
-function initialLoad() {
+/*function initialLoad() {
 		$('.startingDiv').show();
 		$('.correctAnswer').hide();
 		$('.summary').hide();
@@ -168,8 +185,8 @@ function initialLoad() {
       	audioElement.setAttribute("src", "assets/images/starWarsTheme.mp3");
       	audioElement.play();
 
-}
-
+}*/
+//This function starts the Trivia Game
 function startQuiz() {	
 	$('.startingDiv').hide();
 	$('.correctAnswer').hide();
@@ -183,28 +200,30 @@ function startQuiz() {
 	question();
 }
 
+//This function is for processing the users answer
 function answer(i) {
 	$('.startingDiv').hide();
 	$('.correctAnswer').show();
 	$('.summary').hide();
 	$('.questionsDiv').hide();
 	var choice = questions[currentQuestion].answers[i];
-	var correctImage = questions[currentQuestion].correctImageUrl;
-	var wrongImage = questions[currentQuestion].wrongImageUrl;
+	/*var correctImage = questions[currentQuestion].correctImageUrl;
+	var wrongImage = questions[currentQuestion].wrongImageUrl;*/
 
+	//This is for the computer to randomly choose between 10 questions for the user to answer.
 	for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
 		if (questions[currentQuestion].answers[i].correct === true) {
 			var rightAnswer = questions[currentQuestion].answers[i].answerText;
 		}
 	}
-	
+	//This happens when the user answers correctly before the timer hits 0.
 	if (timer.time > 0) {
 		if (choice.correct === true) {
 			$('#message').html('<h2>Correct! The Force is strong with you!</h2>')
 			$('#correctAnswer').empty();
 			$('#image').html('<img src="'+correctImage+'"/>')
 			correctAnswers++;
-
+		//This happens when the user answers incoorectly before the timer hits 0.
 		} else {
 			$('#message').html('<h2>Wrong! Try you must!</h2>');
 			$('#correctAnswer').html('<h3>The correct answer was: ' + rightAnswer + '</h3>');
@@ -212,7 +231,7 @@ function answer(i) {
 			incorrectAnswers++;
 		}
 	}
-
+	//This happens when the user does not pick an answer before the timer hits 0.
 	if (timer.time === 0) {
 		$('#message').html('<h2>Time\'s up!</h2>');
 		$('#correctAnswer').html('<p>The correct answer was: ' + rightAnswer + '</p>');
