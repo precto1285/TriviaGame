@@ -1,441 +1,241 @@
-//GLOBAL VARIABLES:
-var name = {
-    john, paul, george, ringo
-};
-var questions = {
-    q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
-};
+var questions = [
+    {
+        qstn:'1. Who is the oldest Beatle by age?', 
 
-var john = {
-    q1: true,
-    q2: true,
-    q3: true,
-    q4: true,
-    q5: true,
-    q6: true,
-    q7: true,
-    q8: true,
-    q9: true,
-    q10: true
-};
-var paul = {
-    q1: true,
-    q2: true,
-    q3: true,
-    q4: true,
-    q5: true,
-    q6: true,
-    q7: true,
-    q8: true,
-    q9: true,
-    q10: true
-};
-var george = {
-    q1: true,
-    q2: true,
-    q3: true,
-    q4: true,
-    q5: true,
-    q6: true,
-    q7: true,
-    q8: true,
-    q9: true,
-    q10: true
-};
-var ringo = {
-    q1: true,
-    q2: true,
-    q3: true,
-    q4: true,
-    q5: true,
-    q6: true,
-    q7: true,
-    q8: true,
-    q9: true,
-    q10: true
-};
+        answers: [
+            {answerText:'Paul', correct: false},
+            {answerText:'John', correct: false},
+            {answerText:'Ringo', correct: true},
+            {answerText:'George', correct: false}
+        ]
+    },
+    {
+        qstn:'2. What was their hairstyle called?', 
 
-var userChoice = {
-    a, b, c, d
-}
+        answers: [
+            {answerText:'The Mop Top', correct: true},
+            {answerText:'Comb Over', correct: false},
+            {answerText:'Rat Tail', correct: false},
+            {answerText:'The Mohawk', correct: false}
+        ]
+    },
+    {
+        qstn:'3. Where did George meet John?', 
 
-true = 0;
-false = 0;
+        answers: [
+            {answerText:'In Germany', correct: false},
+            {answerText:'In school', correct: false},
+            {answerText:'In a townhall', correct: false},
+            {answerText:'On a double decker bus', correct: true}
+        ]
+    },
+    {
+        qstn:'4. Who has the middle name "Winston"?', 
 
-var win = 0;
-var lose = 0;
-var bestOutOf = 0;
+        answers: [
+            {answerText:'Paul', correct: false},
+            {answerText:'George', correct: false},
+            {answerText:'John', correct: true},
+            {answerText:'Ringo', correct: false}
+        ]
+    },
+    {
+        qstn:'5. Where are The Beatles from?', 
 
-//random arrangement of answers to btn a thru d and random arrangement of questions.
-for (var i = 0; i < name.length; i++) {
-    var questions = Math.floor(Math.random() * i)
-}
+        answers: [
+            {answerText:'New York', correct: false},
+            {answerText:'London', correct: false},
+            {answerText:'Liverpool', correct: true},
+            {answerText:'Germany', correct: false}
+        ]
+    },
+    {
+        qstn:'6. What is the favorite accessory of Ringo?', 
 
+        answers: [
+            {answerText:'Cufflings', correct: false},
+            {answerText:'Necklaces', correct: false},
+            {answerText:'Rings', correct: true},
+            {answerText:'Hats', correct: false}
+        ]
+    },
+    {
+        qstn:'7. Who played the Lead Guitar in "While My Guitar Gently Weeps"?', 
 
-//click on a category to start game. each category is a member of The Beatles.
-startGame(function () {
+        answers: [
+            {answerText:'George', correct: false},
+            {answerText:'John', correct: false},
+            {answerText:'Eric', correct: true},
+            {answerText:'James', correct: false}
+        ]
+    },
+    {
+        qstn:'8. What would Paul eat?', 
 
-    $("#bestOutOf").empty();
+        answers: [
+            {answerText:'Cheeseburger', correct: false},
+            {answerText:'Surf & Turf', correct: false},
+            {answerText:'Kale Chips', correct: true},
+            {answerText:'Eggs Benedict', correct: false}
+        ]
+    },
+    {
+        qstn:'9. Who wrote the song "Yellow Submarine"?', 
 
-    if (johnBtn) {
-        //the game is timed and the user only has 10 seconds to answer each question or a null answer is filled. null equals wrong.
-        john();
-
-        //if answer is correct, best out of 10 populates by 1.
-        if (userChoice === true) {
-            bestOutOf = bestOutOf + 1;
-            trueAnswer = trueAnswer + 1;
-        }
-        else {
-            //no population of best out of 10.
-            alert("Whoops!");//alert:"Whoops!" and pause the clock
-            //when alert "ok"clicks, the clock resumes from it's last paused second. 
-        }
+        answers: [
+            {answerText:'Starkey', correct: false},
+            {answerText:'Harrison', correct: false},
+            {answerText:'Lennon/McCartney', correct: true},
+            {answerText:'George Martin', correct: false}
+        ]
+    },
+    {
+        qstn:'10. Where do they make music?', 
+        answers: [
+            {answerText:'Apple Music Corp', correct: false},
+            {answerText:'Tower Records', correct: false},
+            {answerText:'Abbey Road', correct: true},
+            {answerText:'Lennon/McCartney Productions', correct: false}
+        ]
     }
-    else if (paulBtn) {
-        //the game is timed and the user only has 10 seconds to answer each question or a null answer is filled. null equals wrong.
-        paul();
+]
 
-        //if answer is correct, best out of 10 populates by 1.
-        if (userChoice === true) {
-            bestOutOf = bestOutOf + 1;
-            trueAnswer = trueAnswer + 1;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var unanswered = 0;
+var currentQuestion = 0;
+var audioElement = document.createElement("audio");
+var intervalId;
+var timerRunning = false;
 
-        }
+var timer = {
+	time: 30,
 
-        else {
-            //no population of best out of 10.
-            alert("Whoops!");//alert:"Whoops!" and pause the clock
-            //when alert "ok"clicks, the clock resumes from it's last paused second.
-        }
-    }
-    else if (georgeBtn) {
-        //the game is timed and the user only has 10 seconds to answer each question or a null answer is filled. null equals wrong.
-        george();
+	reset: function() {
+		timer.time = 30;
+		$('#timeKeeper').html('30');
+		clearInterval(intervalId);
+		timerRunning = false;
+	},
 
-        //if answer is correct, best out of 10 populates by 1.
-        if (userChoice === true) {
-            bestOutOf = bestOutOf + 1;
-            trueAnswer = trueAnswer + 1;
+	start: function() {
+		if (!timerRunning) {
+			$('#timeKeeper').html('<h3>' + 'Time Remaining: ' + timer.time + '</h3>')
+			intervalId = setInterval(timer.count, 1000);
+			timerRunning = true;
 
-        }
+		}
+	},
 
-        else {
-            //no population of best out of 10.
-            alert("Whoops!");//alert:"Whoops!" and pause the clock
-            //when alert "ok"clicks, the clock resumes from it's last paused second.
-        }
-    }
-    else if (ringoBtn) {
-        //the game is timed and the user only has 10 seconds to answer each question or a null answer is filled. null equals wrong.
-        ringo();
-
-        //if answer is correct, best out of 10 populates by 1.
-        if (userChoice === true) {
-            bestOutOf = bestOutOf + 1;
-            trueAnswer = trueAnswer + 1;
-
-        }
-
-        else {
-            //no population of best out of 10.
-            alert("Whoops!");//alert:"Whoops!" and pause the clock
-            //when alert "ok"clicks, the clock resumes from it's last paused second.
-        }
-    };
-});
-
-/*each question is a multiple choice question in which the user has to pick between 4 answers.
-there is only 1 correct answer per question.
-*/
-
-//clicking on john lennon executes 10 questions about John Lennon
-var johnBtn = $("#john").on("click"(function () {
-
-    q1 = "Who was John Lennon's first wife?";
-    userChoice:a = "Cynthia" = true
-    userChoice:b = "Yoko" = false
-    userChoice:c = "Linda" = false
-    userChoice:d = "Sadie" = false
-
-    q2 = "What is the name of John's first son?"
-    userChoice:a = "Julian" = true
-    userChoice:b = "Sean" = false
-    userChoice:c = "James" = false
-    userChoice:d = "Aaron" = false
-
-    q3 = "What is John Lennon known for wearing a lot?"
-    userChoice:a = "Glasses" = true
-    userChoice:b = "Slippers" = false
-    userChoice:c = "Jackets" = false
-    userChoice:d = "Hats" = false
-
-    q4 = "What was John Lennon's last album?"
-    userChoice:a = "Double Fantasy" = true
-    userChoice:b = "Imagine" = false
-    userChoice:c = "Band on the Run" = false
-    userChoice:d = "Hard Days Night" = false
-
-    q5 = "What song did John Lennon sing in the Beatles?"
-    userChoice:a = "Twist and Shout" = true
-    userChoice:b = "Long Tall Sally" = false
-    userChoice:c = "Boys" = false
-    userChoice:d = "Something" = false
-
-    q6 = "What was John Lennon's original middle name?"
-    userChoice:a = "Winston" = true
-    userChoice:b = "Ono" = false
-    userChoice:c = "Patrick" = false
-    userChoice:d = "William" = false
-
-    q7 = "What was John Lennon's first band called?"
-    userChoice:a = "The Quarry Men" = true
-    userChoice:b = "The Beatles" = false
-    userChoice:c = "Herman and the Hermits" = false
-    userChoice:d = "The Experience" = false
-
-    q8 = "Who was the famous songwriting partner of John Lennon?"
-    userChoice:a = "Paul" = true
-    userChoice:b = "Ringo" = false
-    userChoice:c = "George" = false
-    userChoice:d = "Brian" = false
-
-    q9 = "Where is John Lennon from?"
-    userChoice:a = "Liverpool" = true
-    userChoice:b = "Newcastle" = false
-    userChoice:c = "Manchester" = false
-    userChoice:d = "Leeds" = false
-
-    q10 = "What instrument does John Lennon play?"
-    userChoice:a = "All of the Above" = true
-    userChoice:b = "The Guitar" = false
-    userChoice:c = "The Bass" = false
-    userChoice:d = "The Piano" = false
-
-
-}));
-
-//clicking on paul mccartney executes 10 questions about paul mccartney
-var paulBtn = $("#paul").on("click"(function () {
-    q1 = "What is Paul's first name?"
-    "James" = true
-    "Paul...Duh!" = false
-    "Patrick" = false
-    "Jude" = false
-
-    q2 = "Who was married to Paul and played keys with him in 'Wings'?"
-    "Linda" = true
-    "Lucy" = false
-    "Judy" = false
-    "Michelle" = false
-
-    q3 = "What instrument did Paul usually play?"
-    "The Bass" = true
-    "The Trombone" = false
-    "The Lead Guitar" = false
-    "The Harmonica" = false
-
-    q4 = "What doesn't Paul eat?"
-    "meat" = true
-    "flowers" = false
-    "cookies" = false
-    "bread" = false
-
-    q5 = "Who did Paul know first?"
-    "George" = true
-    "John" = false
-    "Ringo" = false
-    "Brian" = false
-
-    q6 = "What song did Paul write?"
-    "Let it Be" = true
-    "Lucy in the Sky With Diamonds" = false
-    "Long Tall Sally" = false
-    "Something" = false
-
-    q7 = "Who did not do a song with Paul?
-    "Elvis Presley" = true
-    "Michael Jackson" = false
-    "Stevie Wonder" = false
-    "Kanye West" = false
-
-    q8 = "What instrument did Paul play in 'Hey Jude'?"
-    "Piano" = true
-    "Bass" = false
-    "Guitar" = false
-    "Violin" = false
-
-    q9 = "What TV show did Paul first come out in in America?"
-    "The Ed Sullivan Show" = true
-    "Tonight with Johnny Carson" = false
-    "Knight Rider" = false
-    "Family Ties" = false
-
-    q10 = "Who played with Paul?"
-    "Dave Grohl" = true
-    "David Hasselhoff" = false
-    "David Spade" = false
-    "David Arquette" = false
-
-
-}));
-
-//clicking on george harrison executes 10 questions about george harrison
-var georgeBtn = $("#george").on("click"(function () {
-    q1 = "What did George practice religiously?"
-    "Hinduism" = true
-    "Christianity" = false
-    "Judaism" = false
-    "Satanism" = false
-
-    q2 = "Who played the lead guitar in 'While My Guitar Gently Weeps'?"
-    "Eric Clapton" = true
-    "Paul McCartney" = false
-    "George Harrison" = false
-    "Jimi Hendrix" = false
-
-    q3 = "Who was George Harrison's Favorite Influence?"
-    "All of the Above" = true
-    "Carl Perkins" = false
-    "Chet Atkins" = false
-    "Chuck Berry" = false
-
-    g4 = "What song is George Harrison known for?"
-    "Here Comes The Sun" = true
-    "Penny Lane" = false
-    "Tears in Heaven" = false
-    "All Along the Watchtower" = false
-
-    q5 = "What is George known for playing?"
-    "Guitar" = true
-    "Piano" = false
-    "Drums" = false
-    "Ukelele" = false
-
-    q6 = "Who did NOT play with George?"
-    "The Weekend" = true
-    "Ringo Starr" = false
-    "Eric Clapton" = false
-    "Tom Petty" = false
-
-    q7 = "Where did George meet John?"
-    "In a Double Decker Bus" = true
-    "At the Tavern" = false
-    "At School" = false
-    "In Germany" = false
-
-    q8 = "What is a phrase you might hear George say?"
-    "Hari Krishna" = true
-    "A Whop Bop a Loo wop" = false
-    "Hey Sugar!" = false
-    "Smashing Daaaarling!" = false
-
-    q9 = "What instrument from India did George enjoy playing?"
-    "Sitar" = true
-    "Ukelele" = false
-    "Bongo's" = false
-    "Snake Flute" = false
-
-    q10 = "Who is George's son?"
-    "Danny" = true
-    "Eric" = false
-    "John" = false
-    "Harris" = false
-
-}));
-
-//clicking on ringo starr executes 10 questions about ringo starr
-var ringoBtn = $("#ringo").on("click"(function () {
-    q1 = "What was the first band of Ringo Starr?"
-    "Rory Storm and the Hurricanes" = true
-    "The Beatles" = false
-    "The Rolling Stones" = false
-    "Herman and the Hermits" = false
-
-    q2 = "What does Ringo play?"
-    "Drums" = true
-    "Piano" = false
-    "Flute" = false
-    "Guitar" = false
-
-    q3 = "What is Ringo's real first name?"
-    "Richard" = true
-    "Ronald" = false
-    "Raymond" = false
-    "Rudy" = false
-
-    q4 = "What is a song written by Ringo?"
-    "Photograph" = true
-    "Boys" = false
-    "Yellow Submarine" = false
-    "Come Together" = false
-
-    q5 = "What has Ringo performed as in a movie?"
-    "A Cave Man" = true
-    "A member of The Rolling Stones" = false
-    "A vietnam veteran" = false
-    "A muppet" = false
-
-    q6 = "What would Ringo say?"
-    "Peace and Love!" = true
-    "Kawabonga!" = false
-    "Hari Krishna!" = false
-    "Yippidy Doo Dah!" = false
-
-    q7 = "What drum set does Ringo play?"
-    "Ludwig" = true
-    "Yamaha" = false
-    "Tama" = false
-    "Slingerland" = false
-
-    q8 = "Who did Ringo's son play for?"
-    "The Who" = true
-    "The Led ZeppAgain" = false
-    "Tom Jones" = false
-    "Oasis" = false
-
-    q9 = "What is a famous feature of Ringo?"
-    "His rings" = true
-    "His shirts" = false
-    "His car" = false
-    "His harmonica" = false
-
-    q10 = "Who did Ringo Starr replace?"
-    "Pete Best" = true
-    "Keith Moon" = false
-    "Brian Epstein" = false
-    "Stuart Sutcliffe" = false
-
-}));
-
-
-
-
-//after 10 rounds if the user scores above 50%, you win and a win count populates by 1.
-if (bestOutOf >= 5) {
-    alert("You Win! Try Again?");
-    winCount = winCount + 1;
-    // clock stops
-}
-//after 10 rounds if the user scores below 50%, you lose and a loss count populates by 1.
-else {
-    alert("You Lose. Try Again?");
-    loseCount = loseCount + 1;
-    //clock stops
+	count: function() {
+		timer.time--;
+		$('#timeKeeper').html('<h3>' + 'Time Remaining: ' + timer.time + '</h3>');
+		if (timer.time == 0) {
+			answer();
+		}
+	}
 }
 
-//hitting New Round button resets the game but not the win/loss count.
-$("#newGame").on("click"(function () {
-    $("#bestOutOf").empty()
-    $("#WinCount").empty()
-    $("#lossCount").empty();
-    startGame();
+function question() {
+	timer.reset();
+	timer.start();
+	$('#answers').empty();
+	$('#question').html('<h2>' + questions[currentQuestion].questionTitle + '</h2>');
+	for (var i = 0; i < questions[currentQuestion].answers.length; i ++) {
+		var button = $('<button onclick="answer('+i+')" class="answerButton">' + questions[currentQuestion].answers[i].answerText + '</button>');
+		$('#answers').append(button)
+	}
+}
 
-}));
+function nextQuestion() {
+	$('.startingDiv').hide();
+	$('.correctAnswer').hide();
+	$('.summary').hide();
+	$('.questionsDiv').show();
+	currentQuestion = currentQuestion + 1;
+	if (currentQuestion < questions.length){
+		question();	
+	} else {
+		gameSummary();
+	}
+}
 
-//hitting the reset button resets win/lose count to 0.
-$("#reset").on("click"(function () {
-    $(".score").empty()
-    startGame();
+function initialLoad() {
+		$('.startingDiv').show();
+		$('.correctAnswer').hide();
+		$('.summary').hide();
+		$('.questionsDiv').hide();
+      	audioElement.setAttribute("src", "assets/images/starWarsTheme.mp3");
+      	audioElement.play();
 
-}));
+}
+
+function startQuiz() {	
+	$('.startingDiv').hide();
+	$('.correctAnswer').hide();
+	$('.summary').hide();
+	$('.questionsDiv').show();
+	correctAnswers = 0;
+	incorrectAnswers = 0;
+	unanswered = 0;
+	currentQuestion = 0;
+	audioElement.pause();
+	question();
+}
+
+function answer(i) {
+	$('.startingDiv').hide();
+	$('.correctAnswer').show();
+	$('.summary').hide();
+	$('.questionsDiv').hide();
+	var choice = questions[currentQuestion].answers[i];
+	var correctImage = questions[currentQuestion].correctImageUrl;
+	var wrongImage = questions[currentQuestion].wrongImageUrl;
+
+	for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+		if (questions[currentQuestion].answers[i].correct === true) {
+			var rightAnswer = questions[currentQuestion].answers[i].answerText;
+		}
+	}
+	
+	if (timer.time > 0) {
+		if (choice.correct === true) {
+			$('#message').html('<h2>Correct! The Force is strong with you!</h2>')
+			$('#correctAnswer').empty();
+			$('#image').html('<img src="'+correctImage+'"/>')
+			correctAnswers++;
+
+		} else {
+			$('#message').html('<h2>Wrong! Try you must!</h2>');
+			$('#correctAnswer').html('<h3>The correct answer was: ' + rightAnswer + '</h3>');
+			$('#image').html('<img src="'+wrongImage+'"/>')
+			incorrectAnswers++;
+		}
+	}
+
+	if (timer.time === 0) {
+		$('#message').html('<h2>Time\'s up!</h2>');
+		$('#correctAnswer').html('<p>The correct answer was: ' + rightAnswer + '</p>');
+		$('#image').html('<img src="'+wrongImage+'"/>')
+		unanswered++;
+	}
+	setTimeout('nextQuestion()', 5000)
+}
+
+function gameSummary() {
+	timer.reset();
+	$('.startingDiv').hide();
+	$('.correctAnswer').hide();
+	$('.summary').show();
+	$('.questionsDiv').hide();
+	if (correctAnswers <= 5) {
+		$('#summaryImage').html('<img src="assets/images/muchToLearn.gif"/>');
+		$('#summary').html('Uh Oh! Kylo Ren has found The Resistance!')
+	} else {
+		$('#summaryImage').html('<img src="assets/images/medal.gif"/>')
+		$('#summary').html('Victory! You have successfully avoided Kylo Ren and saved The Resistance!')
+	}
+	$('#correctAnswers').html('<h3>Correct Answers: '+ correctAnswers + '</h3>');
+	$('#incorrectAnswers').html('<h3>Incorrect Answers: ' + incorrectAnswers + '</h3>');
+	$('#unanswered').html('<h3>Unanswered Questions: '+ unanswered + '</h3>')
+}
