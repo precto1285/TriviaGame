@@ -5,104 +5,90 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Beatles Multiple Choice</title>
+    <title>Trivia Game</title>
 
+    <link rel="stylesheet" type="text/css" href="assets/css/refresh.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/refresh.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <header class="topBar">
+    <header>
+        <h1>TRIVIA GAME</h1>
+    </header>
+    <div id="mainBody">
+        <!-- Start Game -->
+        <div id="mainGame" class="boxMain">
 
-        <div id="headBody" class="heAd1">
-            <h1>"Do You Know The Fab Four?"</h1>
-            <br>
-            <h2>*A Beatles Trivia Multiple-Choice Game*</h2>
+            <!-- Questions -->
+            <div id="qSlot" class="innerBox">
+                <h3>Question: </h3>
+                <span id="question"> </span>
+            </div>
+
+            <!-- answer choices a thru d; 
+    each answer is represented by a button. 
+    each button has a value of fales except for one that is true. -->
+            <div id=buttons class="innerBox">
+                <button id="btnA" class="btn">
+                    A<span id="a1" class="answer"></span>
+                </button>
+
+                <button id="btnB" class="btn">
+                    B<span id="a2" class="answer"></span>
+                </button>
+                
+                <button id="btnC" class="btn">
+                    C<span id="a3" class="answer"></span>
+                </button>
+                
+                <button id="btnD" class="btn">
+                    D<span id="a4" class="answer"></span>
+                </button>
+            </div>
+
+            <!-- if userChoice clicks a button with a true value, -->
+
+            <!-- correct guesses, repeat user choice -->
+
+            <!-- if userChoice clicks a button with a false value, -->
+
+            <!-- wrong guesses, repeat user choice -->
+
+            <!-- else, if the user clicks 10 times, game over -->
+
+            <!-- Time Keeper -->
+            <div id="timeCounter" class="innerBox">
+                <h2>
+                    <span id="counter" class="count"></span>
+                </h2>
+            </div>
+
         </div>
 
-    </header>
-
-    <div id="scoreCount" class="">
-            <ul>
-                <li>
-                    <p id="correctCount" class="score">Best out of: </p>
-                    <span id="bestOutOf"></span> /10</li>
-                <li>
-                    <p id="winCount" class="score">Wins: </p>
-                    <span id="wins"></span>
-                </li>
-                <li>
-                    <p id="lossCount" class="score">Loss: </p>
-                    <span id="loss"></span>
-                </li>
-                <li>
-                    <p id="percentCount" class="score">win Ratio: </p>
-                    <span id="percent"></span>
-                </li>
-            </ul>
-    
+        <div id="stat" class="boxMain">
+            <h3>Wins:
+                <span id="winCount" class="count"></span>
+            </h3>
+            <h3>Loss:
+                <span id="loseCount" class="count"></span>
+            </h3>
+            <h3>Best Out of 10:
+                <span id="outOfTenCount" class="count"></span>
+            </h3>
+            <button id="reset" class="btn">Reset Game</button>
+        </div>
     </div>
-
-    <main class="questionBody">
-
-            <button id="start" class="btn">
-                    <img class="photo" src="assets/images/bJump.png" alt="jump" width="100px" height="35px" />
-                    <p class="name">Click Here to Begin!</p>
-                </button><br><br><br>
-
-        <h2 class="heAd1"> You have:
-            <span id="timeKeeper"></span> left.
-        </h2>
-
-        <h1 class="heAd1">Question:
-            <span id="questionChoice"></span>
-        </h1>
-
-        <ul id="question" class="qCat">
-
-            <li id="chcA" class="c1">
-
-                <span id="ans1"></span>
-                <button id="answer1" class="btn">A</button>
-            </li>
-
-            <li id="chcB" class="c1">
-                <span id="ans2"></span>
-                <button id="answer2" class="btn">B</button>
-            </li>
-
-            <li id="chcC" class="c1">
-                <span id="ans3"></span>
-                <button id="answer3" class="btn">C</button>
-            </li>
-
-            <li id="chcD" class="c1">
-                <span id="ans4"></span>
-                <button id="answer4" class="btn">D</button>
-            </li>
-
-        </ul>
-
-        <button id="newGame" class="btn">New Round</button><button id="reset" class="btn">Reset Game</button>
-    
-    </main>
-    
-
-
-
-
-
-
+    <br>
 
     <footer>
         <p id="cpyrt">Copyright 2018 &copy; Philippe Recto</p>
     </footer>
 
 
-    <script src="assets/javascript/game.js", "jquery-3.3.1.min.js"></script>
+    <script src="assets/javascript/app.js" , "jquery-3.3.1.min.js"></script>
 
 
 </body>
