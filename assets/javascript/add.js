@@ -1,5 +1,3 @@
-
-//game questions
 var questions = [
     {
         qstn: '1. Who is the oldest Beatle by age?',
@@ -114,30 +112,54 @@ var currentQuestion = 0;
 
 
 
-
-/*
-//variables for timer.
+//These are variables for the timer:
 var intervalId;
 
 var timerRunning = false;
 
 var timer = {
-
     time: 10,
+    
+    	//These are the functions that operate the timer:
+	//function for reseting the timer:
+	reset: function() {
+		timer.time = 10;
+		$('#counter').html('10');
+		clearInterval(intervalId);
+		timerRunning = false;
+	},
+	//function for starting the timer:
+	start: function() {
+		if (!timerRunning) {
+			$('#counter').html('<h3>' + 'Time Remaining: ' + timer.time + '</h3>')
+			intervalId = setInterval(timer.count, 1000);
+			timerRunning = true;
 
-    start: function () {
-        if (!timerRunning) {
-            intervalId = set(timer.count, 1000);
-            clockRunning = true;
-        }
-    },
-    stop: function () {
-        clearInterval(intervalId);
-        clockRunning = false;
-    }
-};*/
+		}
+	},
+	//function for the count of the clock:
+	count: function() {
+		timer.time--;
+		$('#counter').html('<h3>' + 'Time Remaining: ' + timer.time + '</h3>');
+		if (timer.time == 0) {
+			answer();
+		}
+	}
 
-for(var i=0; i< question.qstn.length; i++){
-    qPick = question[i];
-$("#question").text(qPick);
-};
+}
+
+
+//This function is for randomly loading questions to be answered.
+function question() {
+	timer.reset();
+	timer.start();
+	$('.btn').empty();
+	$('#questionChoice').html('<h2>' + questions[currentQuestion].qstn + '</h2>');
+	for (var i = 0; i < questions[currentQuestion].answers.length; i ++) {
+		var button = $('<button onclick="answer('+i+')" class="answerButton">' + questions[currentQuestion].answers[i].answerText + '</button>');
+		$('.btn').append(button)
+	}
+
+
+
+

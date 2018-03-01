@@ -21,6 +21,8 @@
     <div id="mainBody">
         <!-- Start Game -->
         <div id="mainGame" class="boxMain">
+            <button id="startBtn" class="btn">Click Here To Start</button>
+
 
             <!-- Questions -->
             <div id="qSlot" class="innerBox">
@@ -28,43 +30,40 @@
                 <span id="question"> </span>
             </div>
 
-            <!-- answer choices a thru d; 
-    each answer is represented by a button. 
-    each button has a value of fales except for one that is true. -->
-            <div id=buttons class="innerBox">
-                <button id="btnA" class="btn">
-                    A<span id="a1" class="answer"></span>
-                </button>
-
-                <button id="btnB" class="btn">
-                    B<span id="a2" class="answer"></span>
-                </button>
-                
-                <button id="btnC" class="btn">
-                    C<span id="a3" class="answer"></span>
-                </button>
-                
-                <button id="btnD" class="btn">
-                    D<span id="a4" class="answer"></span>
-                </button>
-            </div>
-
-            <!-- if userChoice clicks a button with a true value, -->
-
-            <!-- correct guesses, repeat user choice -->
-
-            <!-- if userChoice clicks a button with a false value, -->
-
-            <!-- wrong guesses, repeat user choice -->
-
-            <!-- else, if the user clicks 10 times, game over -->
-
             <!-- Time Keeper -->
             <div id="timeCounter" class="innerBox">
                 <h2>
+                    Time Remaining:
                     <span id="counter" class="count"></span>
                 </h2>
             </div>
+
+            <!-- answer choices a thru d; 
+    each answer is represented by a button. 
+    each button has a value of false except for one that is true. -->
+            <div id=buttons class="innerBox">
+                <button id="btnA" class="btn">
+                    A
+                    <span id="a1" class="answer"></span>
+                </button>
+
+                <button id="btnB" class="btn">
+                    B
+                    <span id="a2" class="answer"></span>
+                </button>
+
+                <button id="btnC" class="btn">
+                    C
+                    <span id="a3" class="answer"></span>
+                </button>
+
+                <button id="btnD" class="btn">
+                    D
+                    <span id="a4" class="answer"></span>
+                </button>
+            </div>
+
+
 
         </div>
 
