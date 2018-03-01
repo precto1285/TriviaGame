@@ -122,6 +122,8 @@ var timerRunning = false;
 var timer = {
 	time: 30,
 
+	
+
 	reset: function() {
 		timer.time = 30;
 		$('#timeRemaining').html('30');
@@ -154,6 +156,7 @@ function question() {
 	$('#question').html('<h2>' + questions[currentQuestion].questionTitle + '</h2>');
 	for (var i = 0; i < questions[currentQuestion].answers.length; i ++) {
 		var button = $('<button onclick="answer('+i+')" class="answerButton">' + questions[currentQuestion].answers[i].answerText + '</button>');
+		setTimeout(function(){ alert("Hello"); }, 3000);
 		$('#answers').append(button)
 	}
 }

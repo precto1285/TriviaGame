@@ -182,20 +182,28 @@ function answer(i) {
 
     if (timer.time > 0) {
         if (choice.correct === true) {
+            setTimeout(function(){ alert("Correct"); }, 1000);
+            $('#correctAnswer').empty();
             correctAnswers++;
+            timer.reset();
+            timer.start();
         }
         else {
+            setTimeout(function(){ alert("Incorrect"); }, 1000);
             $("#correctAnswer").html('<h3>The Correct Answer: ' + rightAnswer + '</h3>');
             incorrectAnswers++;
+            timer.reset();
+            timer.start();
         }
     }
 
     if (timer.time === 0) {
+        setTimeout(function(){ alert("Time's Up!"); }, 1000);
         $("#correctAnswer").html('<h3>The Correct Answer: ' + rightAnswer + '</h3>');
         unanswered++;
 
     }
-    setTimeout('nextQuestion()', 5000);
+    setTimeout('nextQuestion()', 1000);
 
 
 }
