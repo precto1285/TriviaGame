@@ -3,92 +3,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
 
     <title>Trivia Game</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/refresh.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-
-    <header>
-        <h1>TRIVIA GAME</h1>
-    </header>
-    <div id="mainBody">
-        <!-- Start Game -->
-        <div id="mainGame" class="boxMain">
-            <button id="startBtn" class="btn">Click Here To Start</button>
-
-
-            <!-- Questions -->
-            <div id="qSlot" class="innerBox">
-                <h3>Question: </h3>
-                <span id="question"> </span>
-            </div>
-
-            <!-- Time Keeper -->
-            <div id="timeCounter" class="innerBox">
-                <h2>
-                    Time Remaining:
-                    <span id="counter" class="count"></span>
-                </h2>
-            </div>
-
-            <!-- answer choices a thru d; 
-    each answer is represented by a button. 
-    each button has a value of false except for one that is true. -->
-            <div id=buttons class="innerBox">
-                <button id="btnA" class="btn">
-                    A
-                    <span id="a1" class="answer"></span>
-                </button>
-
-                <button id="btnB" class="btn">
-                    B
-                    <span id="a2" class="answer"></span>
-                </button>
-
-                <button id="btnC" class="btn">
-                    C
-                    <span id="a3" class="answer"></span>
-                </button>
-
-                <button id="btnD" class="btn">
-                    D
-                    <span id="a4" class="answer"></span>
-                </button>
-            </div>
-
-
-
-        </div>
-
-        <div id="stat" class="boxMain">
-            <h3>Wins:
-                <span id="winCount" class="count"></span>
-            </h3>
-            <h3>Loss:
-                <span id="loseCount" class="count"></span>
-            </h3>
-            <h3>Best Out of 10:
-                <span id="outOfTenCount" class="count"></span>
-            </h3>
-            <button id="reset" class="btn">Reset Game</button>
-        </div>
+        <div class="startingDiv col-lg-12">
+        <button onclick="startGame()" id="startButton">Start</button>
     </div>
-    <br>
 
-    <footer>
-        <p id="cpyrt">Copyright 2018 &copy; Philippe Recto</p>
-    </footer>
+    <div class="questionsDiv col-lg-12">
+        <p id="time"></p>
+        <p id="question"></p>
+        <div id="answers"></div>
+    </div>
 
+    <div class="correctAnswer col-lg-12">
+        <p id="message"></p>
+        <div id="correctAnswer"></div>
+        
+    </div>
 
-    <script src="assets/javascript/app.js" , "jquery-3.3.1.min.js"></script>
-
+    <div class="summary col-lg-12">
+        <h3 id="summaryMessage">How did you do?</h3>
+        <div id="summaryImage"></div>
+        <h3 id="summary"></h3>
+        <p id="correctAnswers"></p>
+        <p id="incorrectAnswers"></p>
+        <p id="unanswered"></p>
+        <button onclick="startQuiz()" id="startOverButton">Start Over?</button>
+    </div>
 
 </body>
 

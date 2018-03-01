@@ -112,32 +112,102 @@ var unanswered = 0;
 
 var currentQuestion = 0;
 
-
-
-
-/*
-//variables for timer.
 var intervalId;
 
 var timerRunning = false;
 
 var timer = {
-
     time: 10,
 
+    reset: function () {
+        timer.time = 10;
+        $('#time').html('10');
+        clearInterval(intervalId);
+        timerRunning = false;
+    },
     start: function () {
         if (!timerRunning) {
-            intervalId = set(timer.count, 1000);
-            clockRunning = true;
+            $('#time').html('<h3>' + 'Time Remaining: ' + timer.time + '</h3>')
+            intervalId = setInterval(timer.count, 1000);
+            timerRunning = true;
         }
     },
-    stop: function () {
-        clearInterval(intervalId);
-        clockRunning = false;
+    count: function () {
+        timer.time--;
+        $('#time').html('<h3>' + 'Time Remaining: ' + timer.time + '</h3>');
+        if (timer.time == 0) {
+            answer();
+        }
     }
-};*/
+}
 
-for(var i=0; i< question.qstn.length; i++){
-    qPick = question[i];
-$("#question").text(qPick);
-};
+function question() {
+    timer.reset();
+    timer.start();
+    $('#answers').empty();
+    $('#question').html(questions[currentQuestion].qstn);
+    for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+        var button = $('<button onclick="answer(' + i + ')" class="answerButton">' + questions[currentQuestion].answers[i].answerText + '</button>');
+        $('#answers').append(button);
+    }
+}
+
+function nextQuestion() {
+    currentQuestion = currentQuestion + 1;
+    if (currentQuestion < questions.length) {
+        question();
+    }
+    else {
+        gameSummary();
+    }
+}
+
+
+function startGame() {
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    unanswered = 0;
+    currentQuestion = 0;
+    question();
+}
+
+function answer(i) {
+    var choice = questions[currentQuestion].answers[i];
+
+    for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+        if (questions[currentQuestion].answers[i].correct === true) {
+            var rightAnswer = questions[currentQuestion].answers[i].answerText;
+        }
+    }
+
+    if (timer.time > 0) {
+        if (choice.correct === true) {
+            correctAnswers++;
+        }
+        else {
+            $("#correctAnswer").html('<h3>The Correct Answer: ' + rightAnswer + '</h3>');
+            incorrectAnswers++;
+        }
+    }
+
+    if (timer.time === 0) {
+        $("#correctAnswer").html('<h3>The Correct Answer: ' + rightAnswer + '</h3>');
+        unanswered++;
+
+    }
+    setTimeout('nextQuestion()', 5000);
+
+
+}
+
+function gameSummary() {
+    timer.reset();
+    if (correctAnswers <= 5) {
+        $('#summary').html('Sorry, Try Again')
+    }
+    else {
+        $('#correctAnswers').html('<h3>Correct Answers: ' + correctAnswers + '</h3>');
+        $('#incorrectAnswers').html('<h3>Incorrect Answers: ' + incorrectAnswers + '</h3>');
+        $('#unanswered').html('<h3>Unanswered Questions: ' + unanswered + '</h3>')
+    }
+}
