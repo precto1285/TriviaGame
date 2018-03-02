@@ -165,7 +165,7 @@ function nextQuestion() {
 
 function startGame() {
     timer.reset();
-    timer.start(
+    timer.start();
     $('#summary').empty();
     $('#correctAnswers').empty();
     $('#incorrectAnswers').empty();
@@ -176,6 +176,21 @@ function startGame() {
     unanswered = 0;
     currentQuestion = 0;
     question();
+}
+
+function resetGame() {
+    timer.reset();
+    $('#question').empty();
+    $('#answers').empty();
+    $('#summary').empty();
+    $('#correctAnswers').empty();
+    $('#incorrectAnswers').empty();
+    $('#unanswered').empty();
+
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    unanswered = 0;
+    currentQuestion = 0;
 }
 
 function answer(i) {
@@ -219,12 +234,13 @@ function answer(i) {
 function gameSummary() {
     timer.reset();
     if (correctAnswers <= 5) {
-        $('#summary').html('Sorry, Try Again')
+        $('#summary').html("<h3>Sorry, Try Again...Only: " + correctAnswers + "/10</h3>");
         $('#correctAnswers').html('<h3>Correct Answers: ' + correctAnswers + '</h3>');
         $('#incorrectAnswers').html('<h3>Incorrect Answers: ' + incorrectAnswers + '</h3>');
         $('#unanswered').html('<h3>Unanswered Questions: ' + unanswered + '</h3>')
     }
     else {
+        $('#summary').html("<h3>Great job! You got: " + correctAnswers + "/10</h3>");
         $('#correctAnswers').html('<h3>Correct Answers: ' + correctAnswers + '</h3>');
         $('#incorrectAnswers').html('<h3>Incorrect Answers: ' + incorrectAnswers + '</h3>');
         $('#unanswered').html('<h3>Unanswered Questions: ' + unanswered + '</h3>')

@@ -8,17 +8,20 @@
 }
 
 body{
-    background-color:rgba(15, 188, 219, 0.685);
+    size:50%;
+    background-image:url(../images/sgt.png);
+    background-size:30%;
 }
 #game{
     background-image:url(../images/TheBeatles.png);
     background-size:100%;
     width:700px;
     height:300px;
-    padding:80px;
+    padding:30px;
     color:white;
-    margin-top:250px;
+    margin-top:30px;
     margin-left: 300px;
+    margin-bottom: 100px;
     font-size:px;
     float:left;
 }
@@ -29,8 +32,9 @@ body{
     height:300px;
     color:rgb(231, 141, 67);
     padding: 30px;
-    margin-top:250px;
+    margin-top:30px;
     margin-right: 300px;
+    margin-bottom: 100px;
     float:right;
 }
 footer{
@@ -40,8 +44,9 @@ footer{
     background-color:white;
     color:red;
     clear:both;
-    margin-top:100%;
+    padding-top:35px;
+    margin-top:749px;
 }
-img{
-    margin:500px;
+header{
+    margin-bottom:10%;
 }
