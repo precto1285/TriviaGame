@@ -164,6 +164,13 @@ function nextQuestion() {
 
 
 function startGame() {
+    timer.reset();
+    timer.start(
+    $('#summary').empty();
+    $('#correctAnswers').empty();
+    $('#incorrectAnswers').empty();
+    $('#unanswered').empty();
+
     correctAnswers = 0;
     incorrectAnswers = 0;
     unanswered = 0;
@@ -201,7 +208,8 @@ function answer(i) {
         setTimeout(function(){ alert("Time's Up!"); }, 1000);
         $("#correctAnswer").html('<h3>The Correct Answer: ' + rightAnswer + '</h3>');
         unanswered++;
-
+        timer.reset();
+        timer.start();
     }
     setTimeout('nextQuestion()', 1000);
 
@@ -212,6 +220,9 @@ function gameSummary() {
     timer.reset();
     if (correctAnswers <= 5) {
         $('#summary').html('Sorry, Try Again')
+        $('#correctAnswers').html('<h3>Correct Answers: ' + correctAnswers + '</h3>');
+        $('#incorrectAnswers').html('<h3>Incorrect Answers: ' + incorrectAnswers + '</h3>');
+        $('#unanswered').html('<h3>Unanswered Questions: ' + unanswered + '</h3>')
     }
     else {
         $('#correctAnswers').html('<h3>Correct Answers: ' + correctAnswers + '</h3>');

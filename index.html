@@ -9,29 +9,40 @@
     <link rel="stylesheet" type="text/css" href="assets/css/refresh.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script type="text/javascript" src="assets/javascript/app.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
+
+
+    <center><header id="trivaGame">
+        Beatles Trivia!
+    </header></center>
+
+    
+    <div id="game">
+        <h2>Clck on the Start Button to begin:</h2>
         <div class="startingDiv col-lg-12">
-        <button onclick="startGame()" id="startButton">Start</button>
-    </div>
+            <button onclick="startGame()" id="startButton">Start</button>
+        </div>
 
-    <div class="questionsDiv col-lg-12">
-        <p id="time"></p>
-        <p id="question"></p>
-        <div id="answers"></div>
-    </div>
+        <div class="questionsDiv col-lg-12">
+            <p id="time"></p>
+            <p id="question"></p>
+            <div id="answers"></div>
+        </div>
 
-    <div class="correctAnswer col-lg-12">
-        <p id="message"></p>
-        <div id="correctAnswer"></div>
+        <div id="correct" class="correctAnswer col-lg-12">
+                <p id="message"></p>
+                <div id="correctAnswer"></div>
         
+            </div>
+
     </div>
 
-    <div class="summary col-lg-12">
+    <div id="summ"class="summary col-lg-12">
         <h3 id="summaryMessage">How did you do?</h3>
         <h3 id="summary"></h3>
         <p id="correctAnswers"></p>
@@ -39,6 +50,8 @@
         <p id="unanswered"></p>
     </div>
 
+    
+    <footer>Copyright &copy; 2018 Philippe Recto</footer>
 </body>
 
 </html>
